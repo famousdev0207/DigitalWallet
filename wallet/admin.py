@@ -32,10 +32,10 @@ class CardAdmin(admin.ModelAdmin):
     list_display = ('card_type','card_number','wallet')
     search_fields = ('card_type','card_number','wallet')
 admin.site.register(Card, CardAdmin) 
-# class ThirdPartyAdmin(admin.ModelAdmin):
-#     list_display = ('account','wallet', 'issuer', 'amount')
-#     search_fields = ('account','wallet', 'issuer', 'amount')
-# admin.site.register(ThirdParty, ThirdPartyAdmin)
+class ThirdPartyAdmin(admin.ModelAdmin):
+    list_display = ('account','wallet', 'issuer', 'currency')
+    search_fields = ('account','wallet', 'issuer', 'currency')
+admin.site.register(ThirdParty, ThirdPartyAdmin)
 class ReceiptAdmin(admin.ModelAdmin):
     list_display = ('transaction', 'receipt_type','amount','receipt_number')
     search_fields = ('transaction', 'amount', 'receipt_number')
