@@ -36,7 +36,6 @@ class Transaction(models.Model):
     transaction_amount = models.BigIntegerField()
     transaction_charge = models.IntegerField()
     transaction_type = models.CharField(max_length=6)
-    receipt = models.ForeignKey("Receipt",on_delete=models.CASCADE,related_name='Transaction_receipt')
     origin_account = models.ForeignKey("Wallet", on_delete=models.CASCADE,related_name='Transaction_origin')
     destination_account = models.ForeignKey("Wallet", on_delete=models.CASCADE,related_name='Transaction_destination')
 class Card(models.Model):
