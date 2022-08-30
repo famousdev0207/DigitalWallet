@@ -25,8 +25,8 @@ class WalletAdmin(admin.ModelAdmin):
     search_fields = ('customer','amount','date_created')
 admin.site.register( Wallet, WalletAdmin)
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ('wallet', 'transaction_amount','transaction_type','origin_account','destination_account')
-    search_fields = ('wallet','transaction_amount','transaction_type','origin_account','destination_account')
+    list_display = ('wallet', 'transaction_amount','transaction_description','origin_account','destination_account')
+    search_fields = ('wallet','transaction_amount','transaction_description','origin_account','destination_account')
 admin.site.register(Transaction, TransactionAdmin)
 class CardAdmin(admin.ModelAdmin):
     list_display = ('card_type','card_number','wallet')

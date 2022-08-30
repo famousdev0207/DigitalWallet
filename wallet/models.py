@@ -4,10 +4,15 @@ from django.db import models
 class Customer(models.Model):
     first_name=models.CharField(max_length=20)
     last_name=models.CharField(max_length=20)
-    address=models.TextField()
+    address=models.CharField(max_length=20)
     email=models.EmailField(max_length=254)
     phone_number=models.CharField(max_length=13)
-    gender=models.CharField(max_length=10)
+    GENDER_CHOICES = (
+           ("M", "Male"),
+           ("F", "Female"),
+           ("NB", "Non-Binary"),
+    )
+    gender=models.CharField(max_length=10, choices= GENDER_CHOICES)
     age=models.PositiveSmallIntegerField()
     profile_picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
     def __str__(self):
@@ -32,7 +37,7 @@ class Wallet(models.Model):
     history = models.DateTimeField()
     pin = models.IntegerField()
     def __str__(self):
-        return '{} {}'.format(self.balance,self.currency,self.customer.name , self.status)
+        return '{} {}'.format(self.balance,self.currency,self.customer.first_name , self.status)
 
 class Account(models.Model):
     account_name = models.CharField(max_length=20)
@@ -41,7 +46,7 @@ class Account(models.Model):
     account_balance = models.IntegerField()
     wallet = models.ForeignKey("Wallet",on_delete=models.CASCADE,related_name='Account_wallet')
     def __str__(self):
-        return'{}{}'.format(self.account_balance,self.account_number,self.account_type,self.wallet.name)
+        return'{}{}'.format(self.account_balance,self.account_number,self.account_type,self.wallet.customer.first_name)
 
 
 class Transaction(models.Model):
@@ -54,7 +59,7 @@ class Transaction(models.Model):
     origin_account = models.ForeignKey("Wallet", on_delete=models.CASCADE,related_name='Transaction_origin')
     destination_account = models.ForeignKey("Wallet", on_delete=models.CASCADE,related_name='Transaction_destination')
     def __str__(self):
-        return '{}{}'.format(self.message, self.destination_account,self.origin_account,self.transaction_amount,self.wallet.name)
+        return '{}{}'.format(self.message, self.destination_account,self.origin_account,self.transaction_amount,self.wallet.customer.first_name)
 
 
 class Card(models.Model):
@@ -68,7 +73,7 @@ class Card(models.Model):
     issuer= models.CharField(max_length=10)
 
     def __str__(self):
-        return '{} {}'.format(self.card_number,self.card_type,self.expiry_date,self.wallet.name,self.account.account_name, self.issuer)
+        return '{} {}'.format(self.card_number,self.card_type,self.expiry_date,self.wallet.customer.first_name,self.account.account_name, self.issuer)
 
 
 class ThirdParty(models.Model):
