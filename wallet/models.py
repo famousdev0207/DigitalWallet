@@ -84,7 +84,7 @@ class ThirdParty(models.Model):
     wallet= models.ForeignKey("Wallet",on_delete=models.CASCADE,related_name='Thirdparty_wallet')
     issuer= models.CharField(max_length=20)
     def __str__(self):
-        return'{} {}'.format(self.account.account_name, self.transaction_amount,self.wallet.name)
+        return'{} {}'.format(self.account.account_name, self.transaction_amount,self.wallet.customer.first_name)
 
 
 class Notification(models.Model):
@@ -101,10 +101,10 @@ class Receipt(models.Model):
     date = models.DateTimeField()
     receipt_number= models.IntegerField()
     amount= models.IntegerField()
-    transaction = models.ForeignKey("Transaction",on_delete=models.CASCADE,related_name='Thirdparty_transaction')
+    transaction = models.ForeignKey("Transaction",on_delete=models.CASCADE,related_name='Receipt_transaction')
     receipt_file = models.FileField()
     def __str__(self):
-        return '{} {}'.format(self.receipt_file,self.amount,self.transaction.amount,self.receipt_file)
+        return '{} {}'.format(self.receipt_file,self.amount,self.transaction.transaction_amount,self.receipt_file)
 
 
 class Loan(models.Model):
@@ -117,7 +117,7 @@ class Loan(models.Model):
     wallet = models.ForeignKey("Wallet",on_delete=models.CASCADE,related_name='Loan_wallet')
 
     def __str__(self):
-        return '{}{}'.format(self.loan_balance,self.loan_id,self.amount,self.guaranter,self.wallet.name)
+        return '{}{}'.format(self.loan_balance,self.loan_id,self.amount,self.guaranter,self.wallet.customer.first_name)
 
 
 class Reward(models.Model):
