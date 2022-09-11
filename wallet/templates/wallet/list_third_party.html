@@ -10,13 +10,15 @@
 </head>
 <body>
     <h3>List of Third Parties</h3>
-    <table>
+    <table class="table" style="width: 50rem; margin-top:10px;margin-left: 20%; padding:2% 5%; background-color:#F5EB67;">
+        <thead class="thead-dark">
         <tr>
             <th>Wallet</th>
             <th>Date</th>
             <th>Currency</th>
             <th>Account</th>
         </tr>
+        </thead>
         <tr>
             {%for thirdparty in thirdparties%}
             <td>{{thirdparty.wallet}}</td>

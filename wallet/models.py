@@ -32,7 +32,11 @@ class Wallet(models.Model):
     customer = models.ForeignKey("Customer",on_delete=models.CASCADE,related_name='Wallet_customer')
     amount  = models.IntegerField()
     date_created = models.DateTimeField()
-    status = models.CharField(max_length=15)
+    STATUS = (
+           ("A", "Active"),
+           ("F", "Inactive"),
+    )
+    status = models.CharField(max_length=15, choices=STATUS)
     currency = models.ForeignKey("Currency",on_delete=models.CASCADE,related_name='Wallet_currency')
     history = models.DateTimeField()
     pin = models.IntegerField()

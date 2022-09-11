@@ -9,13 +9,15 @@
     <title>Account list</title>
 </head>
 <body>
-    <table>
+    <table class="table" style="width: 50rem; margin-top:10px;margin-left: 20%; padding:2% 5%; background-color:#F5EB67;">
+        <thead class="thead-dark">
         <tr>
             <th>Account Name</th>
             <th>Account Number</th>
             <th>Account Type</th>
             <th>Account Balance</th>
         </tr>
+        </thead>
         <tr>
             {%for account in accounts%}
             <td>{{account.account_name}}</td>

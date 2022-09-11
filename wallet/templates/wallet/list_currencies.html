@@ -8,12 +8,14 @@
  <title>List of currency</title>
 </head>
 <body>
-    <table>
+    <table class="table" style="width: 50rem; margin-top:10px;margin-left: 20%; padding:2% 5%; background-color:#F5EB67;">
+        <thead class="thead-dark">
         <tr>
             <th>Country</th>
             <th>Symbol</th>
             <th>Amount</th>
         </tr>
+        </thead>
         <tr>
             {%for currency in currencys%}
             <td>{{currency.country}}</td>

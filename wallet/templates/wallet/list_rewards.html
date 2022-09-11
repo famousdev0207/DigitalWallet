@@ -9,13 +9,15 @@
     <title>Rewards</title>
 </head>
 <body>
-    <table>
+    <table class="table" style="width: 50rem; margin-top:10px;margin-left: 20%; padding:2% 5%; background-color:#F5EB67;">
+        <thead class="thead-dark">
         <tr>
             <th>Transaction</th>
             <th>Recipient</th>
             <th>Points</th>
             <th>Date of Reward</th>
         </tr>
+        </thead>
         <tr>
             {%for reward in rewards%}
             <td>{{reward.transaction}}</td>

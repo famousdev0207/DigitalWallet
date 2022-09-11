@@ -9,13 +9,15 @@
     <title>Cards</title>
 </head>
 <body>
-    <table>
+    <table class="table" style="width: 50rem; margin-top:10px;margin-left: 20%; padding:2% 5%; background-color:#F5EB67;">
+        <thead class="thead-dark">
         <tr>
             <th>Card Number</th>
             <th>Card Created</th>
             <th>Wallet</th>
             <th>Issuer</th>
         </tr>
+        </thead>
         <tr>
             {%for card in cards%}
             <td>{{card.card_number}}</td>
