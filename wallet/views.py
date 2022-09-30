@@ -196,6 +196,41 @@ def edit_customer(request, id):
         {'form': form})
 
 
+def wallet_profile (request,id):
+    wallet = models.Wallet.objects.get(id=id)
+    return render(request, 'wallet/wallet_profile.html', 
+    {"wallet": wallet})
+
+def edit_wallet(request, id):
+    wallet = models.Wallet.objects.get(id=id)
+    if request.method == 'POST':
+        form = forms.WalletRegistrationForm(request.POST,
+        instance=wallet)
+        if form.is_valid():
+            form.save()
+            return redirect ('wallet_profile', id= wallet.id)
+    else:
+        form = forms.WalletRegistrationForm(instance=wallet)
+        return render(request, 'wallet/edit_wallet.html', 
+        {'form': form})
+
+def account_profile (request,id):
+    account = models.Account.objects.get(id=id)
+    return render(request, 'wallet/account_profile.html', 
+    {"account": account})
+
+def edit_account(request, id):
+    account = models.Account.objects.get(id=id)
+    if request.method == 'POST':
+        form = forms.AccountRegistrationForm(request.POST,
+        instance=account)
+        if form.is_valid():
+            form.save()
+            return redirect ('account_profile', id= account.id)
+    else:
+        form = forms.WalletRegistrationForm(instance=account)
+        return render(request, 'wallet/edit_account.html', 
+        {'form': form})
 
 
 

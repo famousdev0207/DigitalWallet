@@ -16,6 +16,7 @@
             <th>Date Created</th>
             <th>Balance</th>
             <th>Status</th>
+            <th>View Wallet</th>
         </tr>
         </thead>
         <tr>
@@ -24,6 +25,7 @@
             <td>{{wallet.date_created}}</td>
             <td>{{wallet.balance}}</td>
             <td>{{wallet.status}}</td>
+            <td> <a href="{% url 'wallet_profile'  id=wallet.id %}">Wallet</a></td>
         </tr>
         {% endfor %}
     </table> 

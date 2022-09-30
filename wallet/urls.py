@@ -26,5 +26,13 @@ urlpatterns = [
     path('currencies/', views.list_currency, name = 'currency'),
     path('customers/<int:id>/', views.customer_profile, name = 'customer_profile'),
     path('customers/edit/<int:id>', views.edit_customer, name = 'edit_customer'),
+    path('getwallet/<int:id>/', views.wallet_profile, name = 'wallet_profile'),
+    path('wallets/edit/<int:id>', views.edit_wallet, name = 'edit_wallet'),
+    path('account-profile/<int:id>/', views.account_profile, name = 'account_profile'),
+    path('accounts/edit/<int:id>', views.edit_account, name = 'edit_account'),
+
+
+
+
 
 ]

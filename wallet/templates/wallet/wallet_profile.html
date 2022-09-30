@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Profile</title>
+</head>
+<body>
+    <h1>{{wallet.customer.first_name}}  {{wallet.customer.last_name}}</h1>
+    <h2>{{wallet.date_created}}</h2>
+    <h3>{{wallet.amount}}</h3>
+    <h3>{{wallet.balance}}</h3>
+    <h3>{{wallet.status}}</h3>
+    <a href="{% url 'edit_wallet'  id=wallet.id %}">Edit Wallet</a>
+
+    
+</body>
+</html>

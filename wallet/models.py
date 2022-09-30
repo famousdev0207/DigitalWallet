@@ -33,8 +33,8 @@ class Wallet(models.Model):
     amount  = models.IntegerField()
     date_created = models.DateTimeField()
     STATUS = (
-           ("A", "Active"),
-           ("F", "Inactive"),
+           ("Active", "Active"),
+           ("Inactive", "Inactive"),
     )
     status = models.CharField(max_length=15, choices=STATUS)
     currency = models.ForeignKey("Currency",on_delete=models.CASCADE,related_name='Wallet_currency')
