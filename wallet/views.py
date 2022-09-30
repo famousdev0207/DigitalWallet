@@ -1,5 +1,5 @@
 from locale import currency
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . import forms
 from . import models
 #content of http request
@@ -175,6 +175,26 @@ def list_notifications(request):
     notifications = models.Notification.objects.all()
     return render(request, 'wallet/list_notifications.html',
     {'notifications': notifications})
+
+
+def customer_profile (request,id):
+    customer = models.Customer.objects.get(id=id)
+    return render(request, 'wallet/customer_profile.html', 
+    {"customer": customer})
+
+def edit_customer(request, id):
+    customer = models.Customer.objects.get(id=id)
+    if request.method == 'POST':
+        form = forms.CustomerRegistrationForm(request.POST,
+        instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect ('customer_profile', id= customer.id)
+    else:
+        form = forms.CustomerRegistrationForm(instance=customer)
+        return render(request, 'wallet/edit_customer.html', 
+        {'form': form})
+
 
 
 

@@ -12,13 +12,13 @@
     h2{
         text-align: center;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: antiquewhite;
+        color:#ffffff;
     }
     button{
         width:30%;
         padding:10px;
         border-style:none;
-        background-color: blueviolet;
+        background-color: rgb(9, 80, 23);
         color: whitesmoke;
         border-radius:10px;
 
@@ -28,9 +28,8 @@
     }
 </style>
 <body>
-    <h2>Customer Registration Form</h2>
-    <div class="card" style="width: 50rem;margin-left: 20%; padding:2% 5%; background-color:#F5EB67;">
-
+    <div class="card" style="width: 50rem;margin-left: 20%; padding:2% 5%; background-color:#5c925c;">
+        <h2>Customer Registration Form</h2>
     <form method="POST">{%csrf_token%}
         {{form.as_p}}
         <button type="submit">Save</button>
