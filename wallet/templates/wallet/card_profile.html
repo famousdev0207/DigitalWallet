@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Card Profile</title>
+</head>
+<body>
+    <h1>{{card.wallet.customer.first_name}}  {{card.wallet.customer.last_name}}</h1>
+    <h2>{{card.account.account_name}}</h2>
+    <h2>{{card.card_number}}</h2>
+    <h3>{{card.card_type}}</h3>
+    <h3>{{card.issuer}}</h3>
+    <h3>{{card.date_of_issue}}</h3>
+
+    <a href="{% url 'edit_card'  id=card.id %}">Edit Card Profile</a>
+    
+</body>
+</html>

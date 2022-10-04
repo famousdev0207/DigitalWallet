@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Receipt</title>
+</head>
+<body>
+    <h1>{{receipt.receipt_type}}  {{receipt.date}}</h1>
+    <h2>{{receipt.receipt_number}}</h2>
+    <h3>{{receipt.transaction.}}</h3>
+    <h3>{{receipt.transaction_description}}</h3>
+    <a href="{% url 'edit_receipt'  id=receipt.id %}">Edit Receipt</a>
+    
+</body>
+</html>

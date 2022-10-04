@@ -16,6 +16,7 @@
             <th>Card Created</th>
             <th>Wallet</th>
             <th>Issuer</th>
+            <th>Card</th>
         </tr>
         </thead>
         <tr>
@@ -24,6 +25,7 @@
             <td>{{card.card_type}}</td>
             <td>{{card.wallet}}</td>
             <td>{{card.issuer}}</td>
+            <td> <a href="{% url 'card_profile'  id=card.id %}">Card</a></td>
         </tr>
         {% endfor %}
     </table> 

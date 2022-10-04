@@ -30,8 +30,12 @@ urlpatterns = [
     path('wallets/edit/<int:id>', views.edit_wallet, name = 'edit_wallet'),
     path('account-profile/<int:id>/', views.account_profile, name = 'account_profile'),
     path('accounts/edit/<int:id>', views.edit_account, name = 'edit_account'),
-
-
+    path('cards/<int:id>/', views.card_profile, name = 'card_profile'),
+    path('cards/edit/<int:id>', views.edit_card, name = 'edit_card'),
+    path('transaction/<int:id>/', views.transaction_profile, name = 'transaction_profile'),
+    path('transaction/edit/<int:id>', views.edit_transaction, name = 'edit_transaction'),
+    path('receipt/<int:id>/',views.receipt_profile, name = 'receipt_profile'),
+    path('receipt/edit/<int:id>', views.edit_receipt, name = 'edit_receipt')
 
 
 
