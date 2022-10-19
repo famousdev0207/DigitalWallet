@@ -52,6 +52,17 @@ class Account(models.Model):
     def __str__(self):
         return'{}{}'.format(self.account_balance,self.account_number,self.account_type,self.wallet.customer.first_name)
 
+    def deposit(self, amount):
+       if amount <= 0:
+           message =  "Invalid amount"
+           status = 403
+       else:
+           self.account_balance += amount
+           self.save()
+           message = f"You have deposited {amount}, your new balance is {self.account_balance}"
+           status = 200
+       return message, status
+
 
 class Transaction(models.Model):
     message = models.CharField(max_length=100)
